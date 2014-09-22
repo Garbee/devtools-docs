@@ -1,69 +1,90 @@
 {{+bindTo:partials.standard_devtools_article}}
+
 <h1>Authoring &amp; development workflow</h1>
 
 
-<p>Developer workflow typically involves a number of steps used to achieve a <strong>goal</strong>.
-While authoring with the DevTools, it's possible to <strong>optimize</strong> this workflow to
-save time achieving common tasks, such as locating files or functions,
-persisting edits to scripts or stylesheets, saving commonly used snippets or
-simply rearranging the layout to better suit your needs.</p>
-
-<p>In this section, we'll explore a number of tips to make your workflow in the
-DevTools more efficient.</p>
-
-
-<div class="collapsible">
-<h2 id="dock-to-right">Dock-To-Right For Vertical-Split Editing</h2>
-
-<p>You may find that docking the DevTools to the bottom of the window provides a
-lot of horizontal space, but less space vertically. Dock to right allows you to
-align the DevTools to the right-hand side of a window whilst keeping it
-attached. This enables you to inspect the current page on the left, whilst
-debugging on the right.</p>
-
-<p>This is useful as:</p>
-
+<p>
+    Developer workflow typically involves a number of steps used to achieve a <strong>goal</strong>.
+    While authoring with the DevTools, it's possible to <strong>optimize</strong> this workflow.
+    This will allow you to save time achieving common tasks, such as:
+</p>
 <ul>
-<li>You may be on a widescreen monitor, wishing to maximize the space available to
-inspect and debug your code</li>
-<li>You can change the split to be less than 400px (the current minimum width of
-Chrome) to test resizing layouts</li>
-<li>Longer scripts are easier to debug with vertical space</li>
+    <li>Locating files or functions.</li>
+    <li>Persisting edits to scripts or stylesheets.</li>
+    <li>Saving commonly used snippets.</li>
+    <li>Simply rearranging the layout to better suit your needs.</li>
 </ul>
 
-<p>Navigate to a URL you wish to debug then toggle between
-<em>dock-to-right</em> and <em>dock-to-window</em> by clicking and <strong>long-holding</strong> on the
-layout icon <img src="../images/layout-button.png"/>  at the bottom left-hand corner of the DevTools.</p>
 
-<div class="screenshot"><img src="authoring-development-workflow/chrome_docktomain.jpg"/></div>
+<section class="collapsible">
+    <h2 id="dock-modes">Dock Modes</h2>
 
-<p class="note"><strong>Note:</strong> The DevTools will remember your last choice, so you can go back and forth
-between the two most common options.</p>
+    <p>
+        The DevTools offers a few modes for the placement of the DevTools.
+        These are:
+    </p>
 
-<p>This will expand to display the available layout options. Once you've selected a
-preference, the layout will change immediately to reflect the change.</p>
+    <dl>
+        <dt>Dock To Right</dt>
+            <dd>
+                Aligns the DevTools to the right of the viewport.
+                This gives you more vertical space for viewing information.
+                It is useful in the following situations:
+                <ul>
+                    <li>Maximizes available space on a widescreen monitor.</li>
+                    <li>Longer scripts are easier to debug in the <strong>sources</strong> pane with vertical space.</li>
+                    <li><abbr title="Document Object Model">DOM</abbr> content in the <strong>Elements</strong> pane is easier to view.</li>
+                </ul>
+                Using dock-to-right to test a sites responsiveness is an antipattern.
+                To properly test different layouts make use of <a href="docs/device-mode">Device Mode</a>.
+            </dd>
+        <dt>Dock to Bottom</dt>
+            <dd>
+                Aligns the DevTools to the bottom of the viewport.
+                This allocates more vertical space for information.
+                It is useful for the following:
+                <ul>
+                    <li>Processing <strong>timeline</strong> information when debugging performance.</li>
+                    <li>Looking over the <strong>network</strong> record.</li>
+                    <li>Running <strong>profiles</strong> and analyzing the results.</li>
+                </ul>
+            </dd>
+        <dt>Undocked</dt>
+            <dd>
+                Using the DevTools outside of the viewport is mainly useful on small screens.
+                This mode however has one unique aspect.
+                It allows for "Inspector Inception", which is simply means you are able to open a new inspector on an undocked inspector to debug it.
+                This is primarily useful only for developers building DevTools Extensions and for contributing to the DevTools.
+            </dd>
+    </dl>
+
+    <!-- Insert quick guide on changing modes -->
+
+    <p class="note"><strong>Note:</strong> The DevTools will remember your last choice, so you can go back and forth between the two most common options.</p>
+
+    <p class="note">
+        <strong>Note:</strong>
+        Each tab can have it's own custom layout arrangement for the DevTools.
+        This means it is possible to have one tab's Tools docked to right while another's is docked to the bottom of the window.
+    </p>
+
+    <h3 id="drag-to-right">Drag-To-Right For Quicker Dock-Positioning</h3>
+
+    <p>It is also possible to hold down and drag the DevTools toolbar to move its docking position, as demonstrated in the animation below.</p>
+
+    <figure>
+        <img src="authoring-development-workflow/devtools-drag-to-right.gif"/>
+        <figcaption>
+            Drag-to-dock in action.
+        </figcaption>
+    </figure>
+
+    <p>This can be a useful alternative to holding down the layout button to select your desired docking position as it only takes one step to toggle between dock-to-right and dock-to-window.</p>
+
+</section>
 
 
-<div class="screenshot"><img src="authoring-development-workflow/chrome_docktoright.jpg"/></div>
-
-<p class="note"><strong>Note:</strong> Each tab can have it's own custom layout arrangement for the DevTools.
-This means it is possible to have one tab's Tools docked to right whilst
-another's is docked to the bottom of the window.</p>
-
-
-</div>
-<div class="collapsible">
-<h2 id="drag-to-right">Drag-To-Right For Quicker Dock-Positioning</h2>
-
-<p>It is also possible to hold down and drag the DevTools toolbar to move its docking position, as demonstrated in the animation below.</p>
-
-<div class="screenshot"><img src="authoring-development-workflow/devtools-drag-to-right.gif"/></div>
-
-<p>This can be a useful alternative to holding down the layout button to select your desired docking position as it only takes one step to toggle between dock-to-right and dock-to-window.</p>
-
-
-</div>
-<div class="collapsible">
+<section class="collapsible">
 <h2 id="search-navigate-filter">Search, Navigate And Filter</h2>
 
 <h3 id="filter-by-filename">Filter For A Script, Stylesheet Or Snippet By Filename</h3>
@@ -173,7 +194,9 @@ the following keyboard shortcuts to display the line picker:</p>
 <div class="screenshot"><img src="authoring-development-workflow/sources_line.jpg"/></div>
 
 
-</div>
+</section>
+
+
 <div class="collapsible">
 <h2 id="live-editing">Live Editing Scripts &amp; Styles</h2>
 
