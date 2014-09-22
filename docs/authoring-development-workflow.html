@@ -1,6 +1,6 @@
 {{+bindTo:partials.standard_devtools_article}}
 
-<h1>Authoring &amp; development workflow</h1>
+<h1>Authoring & development workflow</h1>
 
 
 <p>
@@ -19,44 +19,43 @@
 <section class="collapsible">
     <h2 id="dock-modes">Dock Modes</h2>
 
+    <p>The DevTools offers a few modes for the placement of the DevTools.</p>
+
+    <h3>Dock To Right</h3>
     <p>
-        The DevTools offers a few modes for the placement of the DevTools.
-        These are:
+        Aligns the DevTools to the right of the viewport.
+        This gives you more vertical space for viewing information.
+        It is useful in the following situations:
+    </p>
+    <ul>
+        <li>Maximizes available space on a widescreen monitor.</li>
+        <li>Longer scripts are easier to debug in the <strong>sources</strong> pane with vertical space.</li>
+        <li><abbr title="Document Object Model">DOM</abbr> content in the <strong>Elements</strong> pane is easier to view.</li>
+    </ul>
+    <p>
+        Using dock-to-right to test a sites responsiveness is an antipattern.
+        To properly test different layouts make use of <a href="docs/device-mode">Device Mode</a>.
     </p>
 
-    <dl>
-        <dt>Dock To Right</dt>
-            <dd>
-                Aligns the DevTools to the right of the viewport.
-                This gives you more vertical space for viewing information.
-                It is useful in the following situations:
-                <ul>
-                    <li>Maximizes available space on a widescreen monitor.</li>
-                    <li>Longer scripts are easier to debug in the <strong>sources</strong> pane with vertical space.</li>
-                    <li><abbr title="Document Object Model">DOM</abbr> content in the <strong>Elements</strong> pane is easier to view.</li>
-                </ul>
-                Using dock-to-right to test a sites responsiveness is an antipattern.
-                To properly test different layouts make use of <a href="docs/device-mode">Device Mode</a>.
-            </dd>
-        <dt>Dock to Bottom</dt>
-            <dd>
-                Aligns the DevTools to the bottom of the viewport.
-                This allocates more vertical space for information.
-                It is useful for the following:
-                <ul>
-                    <li>Processing <strong>timeline</strong> information when debugging performance.</li>
-                    <li>Looking over the <strong>network</strong> record.</li>
-                    <li>Running <strong>profiles</strong> and analyzing the results.</li>
-                </ul>
-            </dd>
-        <dt>Undocked</dt>
-            <dd>
-                Using the DevTools outside of the viewport is mainly useful on small screens.
-                This mode however has one unique aspect.
-                It allows for "Inspector Inception", which is simply means you are able to open a new inspector on an undocked inspector to debug it.
-                This is primarily useful only for developers building DevTools Extensions and for contributing to the DevTools.
-            </dd>
-    </dl>
+    <h3>Dock to Bottom</h3>
+    <p>
+        Aligns the DevTools to the bottom of the viewport.
+        This allocates more vertical space for information.
+        It is useful for the following:
+    </p>
+    <ul>
+        <li>Processing <strong>timeline</strong> information when debugging performance.</li>
+        <li>Looking over the <strong>network</strong> record.</li>
+        <li>Running <strong>profiles</strong> and analyzing the results.</li>
+    </ul>
+
+    <h3>Undocked</h3>
+    <p>
+        Using the DevTools outside of the viewport is mainly useful on small screens.
+        This mode however has one unique aspect.
+        It allows for "Inspector Inception", which is simply means you are able to open a new inspector on an undocked inspector to debug it.
+        This is primarily useful only for developers building DevTools Extensions and for contributing to the DevTools.
+    </p>
 
     <!-- Insert quick guide on changing modes -->
 
@@ -68,131 +67,138 @@
         This means it is possible to have one tab's Tools docked to right while another's is docked to the bottom of the window.
     </p>
 
-    <h3 id="drag-to-right">Drag-To-Right For Quicker Dock-Positioning</h3>
-
-    <p>It is also possible to hold down and drag the DevTools toolbar to move its docking position, as demonstrated in the animation below.</p>
-
-    <figure>
-        <img src="authoring-development-workflow/devtools-drag-to-right.gif"/>
-        <figcaption>
-            Drag-to-dock in action.
-        </figcaption>
-    </figure>
-
-    <p>This can be a useful alternative to holding down the layout button to select your desired docking position as it only takes one step to toggle between dock-to-right and dock-to-window.</p>
-
 </section>
 
 
 <section class="collapsible">
-<h2 id="search-navigate-filter">Search, Navigate And Filter</h2>
+    <h2 id="search-navigate-filter">Search, Navigate, and Filter</h2>
 
-<h3 id="filter-by-filename">Filter For A Script, Stylesheet Or Snippet By Filename</h3>
 
-<p>The ability to quickly locate a specific file can be essential to a developer's workflow. The DevTools allow you to search across all script, stylesheet and snippet files using the following shortcuts:</p>
+    <h3 id="filter-by-filename">Filter for a Script, Stylesheet, or Snippet by filename</h3>
 
-<ul>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
-<li><strong><span class="kbd">Cmd</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
-</ul>
+    <p>
+        The ability to quickly locate a specific file can be essential to a developer's workflow.
+        The DevTools allows you to search across all script, stylesheet, and snippet files.
+        You may use the following shortcuts regardless of which panel you are in:
+    </p>
 
-<p>which will work regardless of the panel you are currently in. For this
-<a href="http://todomvc.com/architecture-examples/angularjs/#/">Todo app</a>, using one of these
-shortcuts will take us to the <em>Sources</em> panel and present us with a search box
-listing all inspectable files.</p>
+    <ul>
+        <li><kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">O</kbd></kbd> (Windows, Linux)</li>
+        <li><kbd><kbd class="kbd">Cmd</kbd> + <kbd class="kbd">O</kbd></kbd> (Mac OSX)</li>
+    </ul>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_filter.jpg"/></div>
+    <figure>
+        <img src="authoring-development-workflow/sources_basefind.jpg"/>
+        <figcaption>
+            The file listing for <a href="http://todomvc.com/architecture-examples/angularjs/#/">Todo MVC</a> with "base" in the filename. 
+        </figcaption>
+    </figure>
 
-<p>From there, we can filter down to specific files (e.g files with the word
-'script' in their name) or select a file to view or edit.</p>
+    <p class="note"><strong>Note:</strong> We support camel-case matching in all of our dialogs. e.g: to open
+    FooBarScript.js, you could just type FBaSc, which could save time.</p>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_basefind.jpg"/></div>
 
-<p class="note"><strong>Note:</strong> We support camel-case matching in all of our dialogs. e.g: to open
-FooBarScript.js, you could just type FBaSc, which could save time.</p>
+    <h3 id="textsearch-current-file">Text search within the current file</h3>
 
-<h3 id="textsearch-current-file">Text Search Within The Current File</h3>
+    <p>Searching for a specific string within the current file can be done using the following shortcut:</p>
 
-<p>Searching for a specific string within the current file can be done using the following shortcut:</p>
+    <ul>
+        <li><kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">F</kbd></kbd> (Windows, Linux)</li>
+        <li><kbd><kbd class="kbd">Cmd</kbd> + <kbd class="kbd">F</kbd></kbd> (Mac OSX)</li>
+    </ul>
 
-<ul>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
-<li><strong><span class="kbd">Cmd</span> + <span class="kbd">F</span> (Mac OSX)</strong></li>
-</ul>
+    <p>
+        Once a keyword has been entered into the search field, hit return to move to the first matched result.
+        Subsequent returns will take you to the next result.
+        You may also move between results using the arrows appended to the search input.
+    </p>
 
-<p>Once a keyword has been entered into the search field, hit return to move to the
-first matched result. Subsequent returns will take you to the next result and
-you can also move between results using the <strong><span class="kbd">up</strong></span> and <strong><span class="kbd">down</span></strong> arrow keys as
-displayed below.</p>
+    <figure>
+        <img src="authoring-development-workflow/sources_findone.jpg"/>
+        <figcaption>
+            Searching for "appendTo" in the modalbox.js of <a href="http://todomvc.com/architecture-examples/angularjs/#/">Todo MVC</a>.
+        </figcaption>
+    </figure>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_findone.jpg"/></div>
 
-<h3 id="replacetext-current-file">Replace Text Within The Current File</h3>
+    <h3 id="replacetext-current-file">Replace Text Within The Current File</h3>
 
-<p>In addition to supporting locating text within the current file, the DevTools
-also support replacing both individual and all instances of text with a new
-value. Checking "Replace" will display a second input field allowing you to
-specify the replacement text.</p>
+    <p>
+        In addition to supporting locating text within the current file, the DevTools also supports replacing text.
+        Checking "Replace" will display a second input field allowing you to specify the replacement text.
+        You may then chose to replace the current selection or all found matches.
+    </p>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_find.jpg"/></div>
+    <figure>
+        <img src="authoring-development-workflow/sources_find.jpg"/>
+        <figcaption>
+            Toolbar for text replacement.
+        </figcaption>
+    </figure>
 
-<h3 id="textsearch-across-files">Text Search Across All Files</h3>
 
-<p>If you wish to search across all of the files loaded for a page for a particular
-string, you can load up the search pane using the following shortcut:</p>
+    <h3 id="textsearch-across-files">Text Search Across All Files</h3>
 
-<ul>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
-<li><strong><span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">F</span> (Max OSX)</strong></li>
-</ul>
+    <p>
+        You may also search across all files loaded for a page.
+        This supports both regular expressions and case sensitive search.
+        To load up the search pane using the following shortcut:</p>
 
-<p>This supports both regular expressions and case sensitive search.</p>
+    <ul>
+        <li><kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">Shift</kbd> + <kbd class="kbd">F</kbd></kbd> (Windows, Linux)</li>
+        <li><kbd><kbd class="kbd">Cmd</kbd> + <kbd class="kbd">Opt</kbd> + <kbd class="kbd">F</kbd></kbd> (Max OSX)</li>
+    </ul>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_findall.jpg"/></div>
+    <figure>
+        <img src="authoring-development-workflow/sources_findall.jpg"/>
+        <figcaption>
+            Searching across all files.
+        </figcaption>
+    </figure>
 
-<h3 id="search-regular-expression">Search Using A Regular Expression</h3>
 
-<p>To search using a regular expression, simply type in the expression in the
-Search sources field, check "Regular expression" and hit return.</p>
-<div class="screenshot"><img src="authoring-development-workflow/sources_regex.jpg"/></div>
+    <h3 id="search-regular-expression">Search Using A Regular Expression</h3>
 
-<p>Above we can see an example of how this can be done to find all results matching
-content within <code>&lt;div&gt;&lt;/div&gt;</code> tags.</p>
+    <p>To search using a regular expression, simply type in the expression in the
+    Search sources field, check "Regular expression" and hit return.</p>
+    <div class="screenshot"><img src="authoring-development-workflow/sources_regex.jpg"/></div>
 
-<h3 id="filter-function-within-file">Filter For A Function Or Selector Within A File</h3>
+    <p>Above we can see an example of how this can be done to find all results matching
+    content within <code>&lt;div&gt;&lt;/div&gt;</code> tags.</p>
 
-<p>Should you require further granularity it is also possible to navigate to (or
-search for) specific JavaScript functions or CSS rules within a file.</p>
+    <h3 id="filter-function-within-file">Filter For A Function Or Selector Within A File</h3>
 
-<p>Navigate to a page of your choosing then go to the <em>Sources </em>panel. You can now use the following shortcuts to bring up a function/selector-specific
-search box:</p>
+    <p>Should you require further granularity it is also possible to navigate to (or
+    search for) specific JavaScript functions or CSS rules within a file.</p>
 
-<ul>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
-<li><strong><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
-</ul>
+    <p>Navigate to a page of your choosing then go to the <em>Sources </em>panel. You can now use the following shortcuts to bring up a function/selector-specific
+    search box:</p>
 
-<div class="screenshot"><img src="authoring-development-workflow/function_filter.png"/></div>
+    <ul>
+    <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
+    <li><strong><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
+    </ul>
 
-<p>Depending on the type of file selected you will either see all of the available
-JavaScript functions or CSS declarations. Start typing in the name of a function
-or declaration to filter down the list of results or simply select a result be
-taken directly to where it is defined in the current file.</p>
+    <div class="screenshot"><img src="authoring-development-workflow/function_filter.png"/></div>
 
-<h3 id="search-line-number">Jump To Line Number</h3>
+    <p>Depending on the type of file selected you will either see all of the available
+    JavaScript functions or CSS declarations. Start typing in the name of a function
+    or declaration to filter down the list of results or simply select a result be
+    taken directly to where it is defined in the current file.</p>
 
-<p>The tools also support jumping to a specific line-number within the editor. To
-launch the line number dialog, simply select a file for editing then use one of
-the following keyboard shortcuts to display the line picker:</p>
+    <h3 id="search-line-number">Jump To Line Number</h3>
 
-<ul>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">L</span> (Windows)</strong></li>
-<li><strong><span class="kbd">Cmd</span> + <span class="kbd">L</span> (Mac OSX)</strong></li>
-<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">G</span> (Linux)</strong></li>
-</ul>
+    <p>The tools also support jumping to a specific line-number within the editor. To
+    launch the line number dialog, simply select a file for editing then use one of
+    the following keyboard shortcuts to display the line picker:</p>
 
-<div class="screenshot"><img src="authoring-development-workflow/sources_line.jpg"/></div>
+    <ul>
+    <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">L</span> (Windows)</strong></li>
+    <li><strong><span class="kbd">Cmd</span> + <span class="kbd">L</span> (Mac OSX)</strong></li>
+    <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">G</span> (Linux)</strong></li>
+    </ul>
 
+    <div class="screenshot"><img src="authoring-development-workflow/sources_line.jpg"/></div>
 
 </section>
 
